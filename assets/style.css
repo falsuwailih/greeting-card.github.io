@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'ltazermedium';
+    src: url('29ltazer-medium-webfont.ttf') format('truetype'),
+         url('29ltazer-medium-webfont.woff2') format('woff2'),
+         url('29ltazer-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	font-family: 'ltazermedium';
+	/*font-weight: bold;*/
+	direction: rtl;
+}
+
+canvas {
+  width: 100%;
+  height: auto;
+}
+
+.name-place {
+  font-size: 29px;
+}
+
+.main-cont {
+  border-top: 3px #007298 solid;
+}
