@@ -1,16 +1,21 @@
 @font-face {
-    font-family: 'ltazermedium';
-    src: url('29ltazer-medium-webfont.ttf') format('truetype'),
-         url('29ltazer-medium-webfont.woff2') format('woff2'),
-         url('29ltazer-medium-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "ltazermedium";
+  src: url("29ltazer-medium-webfont.ttf") format("truetype"),
+    url("29ltazer-medium-webfont.woff2") format("woff2"),
+    url("29ltazer-medium-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "The-Sans";
+  src: url("TheSans-Bold.ttf") format("truetype");
 }
 
 body {
-	font-family: 'ltazermedium';
-	/*font-weight: bold;*/
-	direction: rtl;
+  font-family: "ltazermedium";
+  /*font-weight: bold;*/
+  direction: rtl;
 }
 
 canvas {
