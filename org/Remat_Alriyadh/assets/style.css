@@ -1,0 +1,31 @@
+
+@font-face {
+  font-family: "DIN-NEXT-ARABIC";
+  src: url("DIN-NEXT-LT-ARABIC-LIGHT.OTF") format("truetype")
+  ;
+}
+
+@font-face {
+  font-family: "DIN-NEXT-ARABIC-BOLD";
+  src:  url("DIN-NEXT-ARABIC-BOLD.otf") format("truetype");
+  ;
+}
+
+body {
+  font-family: "DIN-NEXT-ARABIC";
+  /*font-weight: bold;*/
+  direction: rtl;
+}
+
+canvas {
+  width: 100%;
+  height: auto;
+}
+
+.name-place {
+  font-size: 29px;
+}
+
+.main-cont {
+  border-top: 3px #007298 solid;
+}
