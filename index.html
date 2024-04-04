@@ -57,14 +57,16 @@
         var ctx = canvas.getContext("2d");
 
         var imgEle = new Image();
-        imgEle.src = "https://lh3.googleusercontent.com/pw/AP1GczM3arq_-Y60EtX0JdOZq3zBLEC-STYAVQIX9rRaD_K2r8Pyg6bIb8kST5Lod6U099OD8LjAyN6OKBt6PoGc8eJcKZGoViI48KLHZfxNPgHi3oeZ8c24ZUzQ9EYsdTD2uSJtbMqDluGKXbyFFp5JVLauqeh814YDTiRNwYORfUcw79894E1JAbeEenEKOCdv95ZiHi2k3q5CglbmFVhg8P_SVd3H6ilrnn4eg1Qs_9NRf3ecng09Ql8-PZzDSn7-28OPSXzBdxw-OpllStFy-SJbl-nCPSySxVuxZCdSIekRGGloneMH69cGurgJ_EE4BQGLUmtFvspUnGc-MOBJL3-6RKgw9AuExcGDkYLluRT7-4S5n3NIuFHI2QMxC9txMe9GJ3TkWghWd2hNTkR_O-vMc2AT_Q1N9Xzk6oP7zu0IFejeS20XRJeI_mmXg8WQfM3GA9gs6emhINgnVvuQqQd1LOWiMVe2R1DM3a7TCI-KT0nGQ67K1pOhdtSry-DkEorpGcybDFvuQqwb09udv4O9kl_KbKCv-jWYWoDly0NKexVFv9M-WifC8lk23eomB9teU6pl_HbTHsVf6SUvmHlwp5H1Kmkeevn8Vy-Qk-1vgMdiCNA8ibCKUhjYjdGETdA92ldoYTLnT8JHRpALowkVNwz_S3xPGzHMrVAGm3f9l39Mhy1G9vGdudI7HFV7HG16NvvculLlFTPauxM8AQCQ9gTbrrx1TC5bQX6fGRJh_JL00xq7c_6x09U93VIVPOhdXNMydCqo17GF1wv-IaPAczh07W-AcLSI2-IzIb1C3wHITCc7owoDWrXUXu1Lb9mlmM-xJeURPkJCdvJcEG9wSGr-zZKmVkhO2lKBTw1Zm9cSsUax4QGUIj2klxAJ0vgBdLyRWjodjWSmiZlnOFb06w=w1045-h923-s-no-gm?authuser=0";
+        imgEle.crossOrigin = 'Anonymous';
 
+        imgEle.src = "https://raw.githubusercontent.com/falsuwailih/greeting-card/main/assets/Eid-2024.PNG";
+        // imgEle.crossOrigin="anonymous"
         imgEle.onload = function () {
           canvas.width = imgEle.width;
           canvas.height = imgEle.height;
 
           ctx.drawImage(imgEle, 0, 0);
-          ctx.font = "30pt The-Sans";
+          ctx.font = "160pt The-Sans";
         };
 
         $(document).on("input", "#name", function () {
