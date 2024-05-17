@@ -19,7 +19,7 @@
   <body>
     <div class="container">
       <div class="row">
-        <img src="./assets/SaudiPayments_Logo.png" class="responsive">
+        <!-- <img src="./assets/SaudiPayments_Logo.png" class="responsive"> -->
         <!-- <div class="row">
           <img src="./assets/SaudiPayments_Logo.png" alt="Italian Trulli">
         </div> -->
@@ -63,7 +63,7 @@
         var imgEle = new Image();
         imgEle.crossOrigin = 'Anonymous';
 
-        imgEle.src = "https://raw.githubusercontent.com/falsuwailih/greeting-card/main/assets/Eid-2024-resized.png";
+        imgEle.src = "https://raw.githubusercontent.com/falsuwailih/greeting-card/main/org/Example/assets/ExampleCard.jpeg";
         // imgEle.crossOrigin="anonymous"
         imgEle.onload = function () {
           canvas.width = imgEle.width;
@@ -79,7 +79,7 @@
           ctx.drawImage(imgEle, 0, 0);
 
           var name = $(this).val();
-          ctx.fillStyle = "#FFFFFF";
+          ctx.fillStyle = "#C6BBB3";
           ctx.textAlign = "ٌRTL";
 
           ctx.fillText(name, canvas.width * 0.96, canvas.height * 0.7);
