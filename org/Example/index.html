@@ -9,9 +9,9 @@
     />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/bootstrap-rtl.min.css" />
-    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/styles/bootstrap-rtl.min.css" />
+    <link rel="stylesheet" href="assets/styles/style.css" />
 
     <title>تهنئة العيد</title>
   </head>
@@ -54,7 +54,7 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="assets/jquery-3.2.1.slim.min.js"></script>
+    <script src="assets/js/jquery-3.2.1.slim.min.js"></script>
     <script type="text/javascript">
       $(function () {
         var canvas = document.getElementById("canvas");
@@ -70,7 +70,7 @@
           canvas.height = imgEle.height;
 
           ctx.drawImage(imgEle, 0, 0);
-          ctx.font = "60pt The-Sans";
+          ctx.font = "60pt ltazermedium";
         };
 
         $(document).on("input", "#name", function () {
@@ -79,10 +79,10 @@
           ctx.drawImage(imgEle, 0, 0);
 
           var name = $(this).val();
-          ctx.fillStyle = "#C6BBB3";
-          ctx.textAlign = "ٌRTL";
+          ctx.fillStyle = "#594E46";
+          ctx.textAlign = "center";
 
-          ctx.fillText(name, canvas.width * 0.96, canvas.height * 0.7);
+          ctx.fillText(name, canvas.width * 0.5, canvas.height * 0.7);
 
           /*
               var nameArr = name.split(' ');
