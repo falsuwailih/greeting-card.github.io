@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="assets/styles/bootstrap.min.css" />
   <link rel="stylesheet" href="assets/styles/bootstrap-rtl.min.css" />
   <link rel="stylesheet" href="assets/styles/style.css" />
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>تهنئة العيد</title>
 </head>
 
@@ -34,15 +34,27 @@
         <form class="form-inline mt-2">
           <label for="name">أدخل الاسم:</label>
           <input maxlength="30" type="text" class="form-control mb-2 mr-sm-2" id="name" placeholder="" />
-          <a href="#" class="btn btn-primary mb-2" style="
-            background-color: #007A61;"">تحميل الصورة</a>
-            <div class=" name-place invisible">
-      </div>
-      </form>
-    </div>
+          <div class="col-12">
+            <a href="#" class="btn btn-primary mb-2" id="preview-btn" style="
+            background-color: #007bff">
+              عرض الصورة
+              <i class=" fa fa-eye" aria-hidden="true"></i>
+            </a>
+            <a href=" #" class="btn btn-primary mb-2" id="download-btn" style="
+            background-color: #007A61;"">
+            تحميل الصورة
+            <i class=" fa fa-download" aria-hidden="true"></i>
 
-    <div class="row"></div>
-  </div>
+            </a>
+          </div>
+          <div class=" name-place invisible">
+
+          </div>
+        </form>
+      </div>
+
+      <div class="row"></div>
+    </div>
   </div>
 
   <!-- Optional JavaScript -->
@@ -95,7 +107,7 @@
         return false;
       });
 
-      $(".btn-primary").click(function () {
+      $("#download-btn").click(function () {
         if ($("#name").val().trim() == "") return false;
 
         var dataUrl = document
@@ -112,6 +124,23 @@
         $("#name").val("");
         $("#name").trigger("input");
       });
+      $("#preview-btn").click(function () {
+        if ($("#name").val().trim() == "") return false;
+
+        var dataUrl = document
+          .getElementById("canvas")
+          .toDataURL("image/jpeg", 1);
+
+        var image = new Image();
+        image.src = dataUrl;
+        // downloadImage(dataUrl);
+
+        var w = window.open("");
+        w.document.write(image.outerHTML);
+
+        $("#name").val("");
+        $("#name").trigger("input");
+      });
       async function downloadImage(imageSrc) {
         const image = await fetch(imageSrc)
         const imageBlog = await image.blob()
@@ -119,7 +148,7 @@
 
         const link = document.createElement('a')
         link.href = imageURL
-        link.download = 'image file name here'
+        link.download = 'HappyEid2024'
         document.body.appendChild(link)
         link.click()
         document.body.removeChild(link)
