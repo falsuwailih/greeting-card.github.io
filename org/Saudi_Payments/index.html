@@ -82,14 +82,14 @@
       var imgEle = new Image();
       imgEle.crossOrigin = 'Anonymous';
 
-      imgEle.src = "https://raw.githubusercontent.com/falsuwailih/greeting-card/main/org/Example/assets/image/newEid.png";
+      imgEle.src = "https://raw.githubusercontent.com/falsuwailih/greeting-card/main/org/Saudi_Payments/assets/image/newEid.png";
       // imgEle.crossOrigin="anonymous"
       imgEle.onload = function () {
         canvas.width = imgEle.width;
         canvas.height = imgEle.height;
 
         ctx.drawImage(imgEle, 0, 0);
-        ctx.font = "60pt ltazermedium";
+        ctx.font = "220pt ltazermedium";
       };
 
       $(document).on("input", "#name", function () {
@@ -99,10 +99,10 @@
         ctx.drawImage(imgEle, 0, 0);
 
         var name = $(this).val();
-        ctx.fillStyle = "#594E46";
+        ctx.fillStyle = "#FFF";
         ctx.textAlign = "center";
 
-        ctx.fillText(name, canvas.width * 0.5, canvas.height * 0.6);
+        ctx.fillText(name, canvas.width * 0.5, canvas.height * 0.87);
 
 
         return false;
