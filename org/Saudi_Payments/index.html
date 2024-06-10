@@ -1,164 +1,145 @@
 <!DOCTYPE html>
 <html lang="ar">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/bootstrap-rtl.min.css" />
+    <link rel="stylesheet" href="assets/style.css" />
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="assets/styles/bootstrap.min.css" />
-  <link rel="stylesheet" href="assets/styles/bootstrap-rtl.min.css" />
-  <link rel="stylesheet" href="assets/styles/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <title>تهنئة العيد</title>
-</head>
+    <title>تهنئة العيد</title>
+  </head>
 
-<body>
-  <div class="container">
-    <div class="row">
-      <!-- <img src="./assets/SaudiPayments_Logo.png" class="responsive"> -->
-      <!-- <div class="row">
+  <body>
+    <div class="container">
+      <div class="row">
+        <img src="./assets/SaudiPayments_Logo.png" class="responsive">
+        <!-- <div class="row">
           <img src="./assets/SaudiPayments_Logo.png" alt="Italian Trulli">
         </div> -->
-      <div class="col-12">
-        <canvas id="canvas"></canvas>
+        <div class="col-12">
+          <canvas id="canvas"></canvas>
+        </div>
+
+        <div class="col-12 main-cont mb-5 pt-3">
+          <p>
+            لإنشاء بطاقة التهنئة الخاصة بك بمناسبة العيد و إرسالها لأحبائك،
+            الرجاء تعبئة الاسم في المكان المخصص أدناه:
+          </p>
+
+          <form class="form-inline mt-2">
+            <label for="name">أدخل الاسم:</label>
+            <input
+              maxlength="30"
+              type="text"
+              class="form-control mb-2 mr-sm-2"
+              id="name"
+              placeholder=""
+            />
+            <a href="#" class="btn btn-primary mb-2" style="
+            background-color: #007A61;"">تحميل الصورة</a>
+            <div class="name-place invisible"></div>
+          </form>
+        </div>
+
+        <div class="row"></div>
       </div>
-
-      <div class="col-12 main-cont mb-5 pt-3">
-        <p>
-          لإنشاء بطاقة التهنئة الخاصة بك بمناسبة العيد و إرسالها لأحبائك،
-          الرجاء تعبئة الاسم في المكان المخصص أدناه:
-        </p>
-
-        <form class="form-inline mt-2">
-          <label for="name">أدخل الاسم:</label>
-          <input maxlength="30" type="text" class="form-control mb-2 mr-sm-2" id="name" placeholder="" />
-          <div class="col-12">
-            <a href="#" class="btn btn-primary mb-2" id="preview-btn" style="
-            background-color: #007bff">
-              عرض الصورة
-              <i class=" fa fa-eye" aria-hidden="true"></i>
-            </a>
-
-            <a href=" #" class="btn btn-primary mb-2" id="download-btn" style="
-            background-color: #007A61;"">
-            تحميل الصورة
-            <i class=" fa fa-download" aria-hidden="true"></i>
-
-      </a>
-      <p>Image is below</p>
-      <img src="https://raw.githubusercontent.com/falsuwailih/greeting-card/main/org/Saudi_Payments/assets/image/newEid.png" class="responsive">
-      
-          </div>
-          <div class=" name-place invisible">
-
-          </div>
-        </form>
-      </div>
-
-      <div class="row"></div>
     </div>
-  </div>
 
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="assets/js/jquery-3.2.1.slim.min.js"></script>
-  <script type="text/javascript">
-    $(function () {
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="assets/jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
 
-      var input = document.getElementById("name");
+        var imgEle = new Image();
+        imgEle.crossOrigin = 'Anonymous';
 
-      // Execute a function when the user presses a key on the keyboard
-      input.addEventListener("keypress", function (event) {
-        // If the user presses the "Enter" key on the keyboard
-        if (event.key === "Enter") {
-          // Cancel the default action, if needed
-          event.preventDefault();
-          // Trigger the button element with a click
-          //document.getElementById("myBtn").click();
-        }
+        imgEle.src = "https://raw.githubusercontent.com/falsuwailih/greeting-card/main/assets/Eid-2024-resized.png";
+        // imgEle.crossOrigin="anonymous"
+        imgEle.onload = function () {
+          canvas.width = imgEle.width;
+          canvas.height = imgEle.height;
+
+          ctx.drawImage(imgEle, 0, 0);
+          ctx.font = "60pt The-Sans";
+        };
+
+        $(document).on("input", "#name", function () {
+          //redraw image
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          ctx.drawImage(imgEle, 0, 0);
+
+          var name = $(this).val();
+          ctx.fillStyle = "#FFFFFF";
+          ctx.textAlign = "ٌRTL";
+
+          ctx.fillText(name, canvas.width * 0.96, canvas.height * 0.7);
+
+          /*
+              var nameArr = name.split(' ');
+      
+              var nNameArr = [''];
+              for (var i=0; i<nameArr.length; i++) {
+                  var tPrx = nNameArr[0] + nameArr[i];
+                  if (tPrx.length <= 30)
+                      nNameArr[0] += ' '+ nameArr[i];
+                  else
+                      nNameArr[1] += ' '+ nameArr[i]; 
+              }
+          	
+              for (var i=0; i<nNameArr.length; i++) {
+                  if (i >= 2) return;
+      
+                  $('.name-place').html(nNameArr[i]);
+      	
+      	
+                   var textWidth = ctx.measureText(nNameArr[i] ).width
+      
+                  //refill text
+                  var textX = 400 + textWidth; //textWidth + ( (parseInt(canvas.width) - parseInt(textWidth) ) / 2 ) ;
+                  var textY =  parseInt(canvas.height) - 47;//parseInt(canvas.height/2) + 90
+                  
+      
+                  ctx.fillStyle = "#007599";
+              	
+              	
+      
+                        ctx.fillText(nNameArr[i], textX, textY + (i*60));
+              }
+              */
+
+          return false;
+        });
+
+        $(".btn-primary").click(function () {
+          if ($("#name").val().trim() == "") return false;
+
+          var dataUrl = document
+            .getElementById("canvas")
+            .toDataURL("image/jpeg", 1);
+
+          var image = new Image();
+          image.src = dataUrl;
+
+          var w = window.open("");
+          w.document.write(image.outerHTML);
+
+          //$(this).attr('href', document.getElementById('canvas').toDataURL('image/jpeg', 0.5));
+          //$(this).attr('download', 'Eid-Greeting.jpg');
+
+          $("#name").val("");
+          $("#name").trigger("input");
+        });
       });
-      var canvas = document.getElementById("canvas");
-      var ctx = canvas.getContext("2d");
-
-      var imgEle = new Image();
-      imgEle.crossOrigin = 'Anonymous';
-
-      imgEle.src = "https://raw.githubusercontent.com/falsuwailih/greeting-card/main/org/Saudi_Payments/assets/image/newEid.png";
-      // imgEle.crossOrigin="anonymous"
-      imgEle.onload = function () {
-        canvas.width = imgEle.width;
-        canvas.height = imgEle.height;
-
-        ctx.drawImage(imgEle, 0, 0);
-        ctx.font = "220pt ltazermedium";
-      };
-
-      $(document).on("input", "#name", function () {
-
-        //redraw image
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.drawImage(imgEle, 0, 0);
-
-        var name = $(this).val();
-        ctx.fillStyle = "#FFF";
-        ctx.textAlign = "center";
-
-        ctx.fillText(name, canvas.width * 0.5, canvas.height * 0.87);
-
-
-        return false;
-      });
-
-      $("#download-btn").click(function () {
-        if ($("#name").val().trim() == "") return false;
-
-        var dataUrl = document
-          .getElementById("canvas")
-          .toDataURL("image/jpeg", 1);
-
-        var image = new Image();
-        image.src = dataUrl;
-        downloadImage(dataUrl);
-
-        // var w = window.open("");
-        // w.document.write(image.outerHTML);
-
-        $("#name").val("");
-        $("#name").trigger("input");
-      });
-      $("#preview-btn").click(function () {
-        if ($("#name").val().trim() == "") return false;
-
-        var dataUrl = document
-          .getElementById("canvas")
-          .toDataURL("image/jpeg", 1);
-
-        var image = new Image();
-        image.src = dataUrl;
-        // downloadImage(dataUrl);
-
-        var w = window.open("");
-        w.document.write(image.outerHTML);
-
-        $("#name").val("");
-        $("#name").trigger("input");
-      });
-      async function downloadImage(imageSrc) {
-        const image = await fetch(imageSrc)
-        const imageBlog = await image.blob()
-        const imageURL = URL.createObjectURL(imageBlog)
-
-        const link = document.createElement('a')
-        link.href = imageURL
-        link.download = 'HappyEid2024'
-        document.body.appendChild(link)
-        link.click()
-        document.body.removeChild(link)
-      }
-    });
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>
