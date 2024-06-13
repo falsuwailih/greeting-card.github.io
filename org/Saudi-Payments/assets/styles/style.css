@@ -1,12 +1,8 @@
-@font-face {
-  font-family: "ltazermedium";
-  src: url("../styles/font/29ltazer-medium-webfont.ttf") format("truetype"),
-    url("../styles/font/29ltazer-medium-webfont.woff2") format("woff2"),
-    url("../styles/font/29ltazer-medium-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
 
+@font-face {
+  font-family: "TheSans";
+  src: url("../styles/font/TheSans-Bold.otf") format("opentype");
+}
 .responsive {
   width: 50%;
   height: auto;
@@ -17,7 +13,7 @@
 
 
 body {
-  font-family: "ltazermedium";
+  font-family: "TheSans";
   /*font-weight: bold;*/
   direction: rtl;
 }
